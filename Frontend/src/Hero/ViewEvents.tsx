@@ -16,7 +16,7 @@ interface Event{
   updatedat: string;
 }
 
-
+ const API_URL = "https://eventmanagement1-fgjq.onrender.com";
 
 export const ViewEvents = () => {
         const {id} = useParams<{id: string}>();
@@ -39,7 +39,7 @@ export const ViewEvents = () => {
    
     try {
       
-      const res = await fetch(`http://localhost:5000/api/events/${id}`);
+      const res = await fetch(`${API_URL}/api/events/${id}`);
       
       if (!res.ok) throw new Error("Failed to fetch event");
       const data: Event = await res.json();

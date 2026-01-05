@@ -36,7 +36,7 @@ const UpdateEvent = () => {
         date: "",
         time: "",
     })
-
+ const API_URL = "https://eventmanagement1-fgjq.onrender.com";
     
 
    useEffect(() => { //fetch Event data by Id
@@ -46,7 +46,7 @@ const UpdateEvent = () => {
    
     try {
       
-      const res = await fetch(`http://localhost:5000/api/events/${id}`);
+      const res = await fetch(`${API_URL}/api/events/${id}`);
       
       if (!res.ok) throw new Error("Failed to fetch event");
       const data: Event = await res.json();
@@ -71,7 +71,7 @@ const UpdateEvent = () => {
     e.preventDefault();
   
     try {
-      const res = await fetch(`http://localhost:5000/api/events/update/${id}`,{
+      const res = await fetch(`${API_URL}/api/events/update/${id}`,{
         method: "PUT",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(form),

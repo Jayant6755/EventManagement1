@@ -15,13 +15,13 @@ interface Event{
     time: string,
     updatedAt: string
 }
-
+ const API_URL = "https://eventmanagement1-fgjq.onrender.com";
 const Index = () => {
     const [events, setEvents] = useState<Event[]>([]);
 
     const fetchEvents = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/events');
+        const res = await fetch(`${API_URL}/api/events`);
         if(!res.ok){
             throw new Error('Failed to fetch events');
         }
@@ -40,7 +40,7 @@ const Index = () => {
     const deleteEvents = async (id: string) =>{
      
      try {
-       const res = await fetch(`http://localhost:5000/api/events/${id}`,{
+       const res = await fetch(`${API_URL}/api/events/${id}`,{
         method: "DELETE",
        })
        if(!res.ok){
